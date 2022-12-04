@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package user;
+
+// protoc-gen-go 版本大于1.4.0, proto文件需要加上go_package,否则无法生成
+option go_package = "./sts";
+
+message InsertRequest {
+  string title=1;
+  string text = 2;
+}
+message InsertResponse {
+  // 用户id
+  int64 id = 1;
+}
+message DeleteRequest {
+  int64 id=1;
+}
+message DeleteResponse {
+  // 用户id
+  string rps = 1;
+}
+message FindRequest {
+  int64 id=1;
+}
+message FindResponse {
+  string title=1;
+  string text=2;
+}
+service Sts {
+  rpc Insert(InsertRequest) returns(InsertResponse);
+  rpc Delete(DeleteRequest) returns(DeleteResponse);
+  rpc Find(FindRequest) returns (FindResponse);
+}

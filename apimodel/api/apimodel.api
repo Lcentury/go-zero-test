@@ -1,0 +1,30 @@
+type (
+	InsertReq {
+		Title string `json:"title"`
+		Text  string `json:"text"`
+	}
+	InsertReply {
+		Id int64 `json:"id"`
+	}
+	DeleteReq {
+		Id int64 `json:"id"`
+	}
+	DeleteReply {
+		Rep string `json:"reponse"`
+	}
+	FindReq {
+		Id int64 `json:"id"`
+	}
+	FindReply {
+		Title string `json:"title"`
+		Text  string `json:"text"`
+	}
+)
+service ApiTest {
+	@handler Insert
+	get /Insert (InsertReq) returns (InsertReply)
+	@handler Delete
+	get /Delete (DeleteReq) returns (DeleteReply)
+	@handler Find
+	get /Find (FindReq) returns (FindReply)
+}

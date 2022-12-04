@@ -1,0 +1,4 @@
+Name: sts.rpc
+ListenOn: 0.0.0.0:8080
+Mysql:
+  DataSource: "root:123456@tcp(101.34.31.111:3306)/sts"
